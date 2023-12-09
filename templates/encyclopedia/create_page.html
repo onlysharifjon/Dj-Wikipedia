@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Create Page
+{% endblock %}
+
+
+{% block content %}
+
+<div class="card">
+    <form method="post" class="p-3">
+        <h3 class="text-center">Create Page Form</h3>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <label class="form-label">Captcha: {{ captcha }} = ?</label>
+        <input type="number" class="form-control" name="captcha">
+        <button class="btn btn-success mt-2" type="submit">Create</button>
+    </form>
+</div>
+
+{% endblock %}
