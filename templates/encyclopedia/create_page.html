@@ -13,8 +13,6 @@ Create Page
         <h3 class="text-center">Create Page Form</h3>
         {% csrf_token %}
         {{ form.as_p }}
-        <label class="form-label">Captcha: {{ captcha }} = ?</label>
-        <input type="number" class="form-control" name="captcha">
         <button class="btn btn-success mt-2" type="submit">Create</button>
     </form>
 </div>
