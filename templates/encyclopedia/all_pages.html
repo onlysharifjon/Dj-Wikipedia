@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 
-
 {% block title %}
 All Page
 {% endblock %}
@@ -10,28 +9,18 @@ All Page
 
 
 <div class="row">
-    <div class="col-3">
+    {% for p in pages %}
+    <div class="col-3 m-3">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <h5 class="card-title">{{ p.title }}</h5>
+                <p class="card-text">{{ p.description | truncatechars:100 }}</p>
+                <a href="#" class="btn btn-info">Edit</a>
+                <a href="{% url 'delete_page' p.pk %}" class="btn btn-danger">Delete</a>
             </div>
         </div>
     </div>
-    <div class="col-3">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 
 
