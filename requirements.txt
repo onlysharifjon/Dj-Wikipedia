@@ -2,7 +2,6 @@ asgiref==3.7.2
 Django==5.0
 django-jazzmin==2.6.0
 environs==9.5.0
-html2text==2020.1.16
 markdown2==2.4.11
 marshmallow==3.20.1
 packaging==23.2
