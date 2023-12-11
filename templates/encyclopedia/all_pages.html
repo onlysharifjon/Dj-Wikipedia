@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 
 {% block title %}
 All Page
@@ -9,18 +10,26 @@ All Page
 
 
 <div class="row">
-    {% for p in pages %}
-    <div class="col-3 m-3">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{ p.title }}</h5>
-                <p class="card-text">{{ p.description | truncatechars:100 }}</p>
-                <a href="#" class="btn btn-info">Edit</a>
-                <a href="{% url 'delete_page' p.pk %}" class="btn btn-danger">Delete</a>
+    {% if pages %}
+        {% for p in pages %}
+        <div class="col-3 m-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title mb-4">
+                        <a href="{% url 'detail_page' p.slug %}">{{ p.title }}</a>
+                    </h5>
+                    <a href="{% url 'edit_page' p.pk %}" class="btn btn-info">Edit</a>
+                    <a href="{% url 'delete_page' p.pk %}" class="btn btn-danger">Delete</a>
+                </div>
             </div>
         </div>
-    </div>
-    {% endfor %}
+        {% endfor %}
+    {% else %}
+    <center>
+        <h3>Pages not found</h3>
+        <a class="text-muted" href="{% url 'create_page' %}">create page</a>
+    </center>
+    {% endif %}
 </div>
 
 
