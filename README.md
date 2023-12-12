@@ -11,6 +11,11 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
+### activate venv (Linux)
+```
+venv/bin/activate
+```
+
 ### create .env file
 ```
 SECRET_KEY=
